@@ -674,6 +674,11 @@ header .button {
     .button:focus {
         font-size: 18px;
     }
+    .button_small,
+    .button_small:visited,
+    .button_small:focus {
+        font-size: 14px;
+    }
     .button_wide,
     .button_wide:visited,
     .button_wide:focus {
