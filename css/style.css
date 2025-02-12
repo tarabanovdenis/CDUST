@@ -679,9 +679,9 @@ header .button {
     .button_small:focus {
         font-size: 14px;
     }
-    .button_wide,
-    .button_wide:visited,
-    .button_wide:focus {
+    .button_wide:not(.button_outline),
+    .button_wide:not(.button_outline):visited,
+    .button_wide:not(.button_outline):focus {
         padding-left: 0;
         padding-right: 0;
     }
