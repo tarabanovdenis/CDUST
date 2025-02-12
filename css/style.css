@@ -1,16 +1,16 @@
 @font-face {
     font-family: 'PTMonoWebRegular';
     src:
-            url('../fonts/PT-Mono_Regular.woff2') format('woff2'),
-            url('../fonts/PT-Mono_Regular.woff') format('woff');
+            url('../fonts/pt-mono_regular.woff2') format('woff2'),
+            url('../fonts/pt-mono_regular.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
 @font-face {
     font-family: 'PTMonoWebBold';
     src:
-            url('../fonts/PT-Mono_Bold.woff2') format('woff2'),
-            url('../fonts/PT-Mono_Bold.woff') format('woff');
+            url('../fonts/pt-mono_bold.woff2') format('woff2'),
+            url('../fonts/pt-mono_bold.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
@@ -358,13 +358,6 @@ h4 {
     line-height: 28px;
 }
 
-[data-switcher-content]:not(.popup-container) {
-    display: none;
-}
-
-[data-switcher-content].js-open:not(.popup-container) {
-    display: block;
-}
 @media (max-width: 760px) {
     h2 {
         font-size: 3.3vmax;
@@ -496,13 +489,16 @@ h4 {
     position: relative;
 
     display: inline-block;
+    overflow: hidden;
 
     height: 46px;
     padding: 0 16px;
+    max-width: 100%;
 
     cursor: pointer;
     line-height: 46px;
     text-transform: uppercase;
+    text-overflow: ellipsis;
     vertical-align: middle;
     -webkit-user-select: none;
     user-select: none;
@@ -577,15 +573,21 @@ header .button_small:focus {
 
 .button_muted,
 .button_muted:visited,
-.button_muted:focus {
+.button_muted:focus,
+.grid_tabs .button:not(.js-active),
+.grid_tabs .button:not(.js-active):visited,
+.grid_tabs .button:not(.js-active):focus {
     background: rgb(var(--colorAccntMuted));
     border-color: rgb(var(--colorAccntMuted));
 }
-.button_muted:hover {
+.button_muted:hover,
+.grid_tabs .button:not(.js-active):hover {
     background: rgba(var(--colorAccntMuted), 0.9);
     border-color: rgba(var(--colorAccntMuted), 0.9)
 }
-.button_muted:active {
+.button_muted:active,
+.grid_tabs .button:active,
+.grid_tabs .button:not(.js-active):active {
     background: rgba(var(--colorAccntMuted), 0.8);
     border-color: rgba(var(--colorAccntMuted), 0.8)
 }
@@ -671,6 +673,12 @@ header .button {
     .button:visited,
     .button:focus {
         font-size: 18px;
+    }
+    .button_wide,
+    .button_wide:visited,
+    .button_wide:focus {
+        padding-left: 0;
+        padding-right: 0;
     }
 }
 /* button (end) */
@@ -772,6 +780,10 @@ header .button {
 /* grid (begin) */
 .box_hero .grid {margin-bottom: -16px;}
 
+.grid_3 {
+    margin-right: -9px;
+}
+
 .grid_tabs {
     margin: 0 0 27px 0;
 }
@@ -821,6 +833,8 @@ h3 + .grid_tabs {
 .grid_3 .grid__cell {
     flex: 0 1 33%;
 
+    max-width: 33%;
+
     box-sizing: border-box;
 }
 
@@ -850,10 +864,22 @@ h3 + .grid_tabs {
         flex: 0 1 50%;
     }
 
-    .grid_3.grid_mobile_2 .grid__cell {
+    .grid_3 {
+        margin-right: 0;
+    }
+
+    .grid_3.grid_mobile_two_column .grid__cell {
+        flex: 1 1 50%;
+        /*padding: 13px 10px;*/
+        padding: 0 10px 16px 10px;
+        max-width: 50%;
+
+    }
+    .grid_3.grid_mobile_one_column .grid__cell {
         flex: 1 1 100%;
         /*padding: 13px 10px;*/
         padding: 0 10px 16px 10px;
+        max-width: 100%;
 
     }
     h3 {
@@ -960,7 +986,7 @@ h3 + .grid_tabs {
     transition: all 0.4s ease;
 }
 
-.popup-container.js-open {
+.popup-container.js-active {
     opacity: 1;
     z-index: 10;
 
@@ -1084,3 +1110,17 @@ h3 + .grid_tabs {
     display: none;
 }
 /* toggle-box (end) */
+
+
+/* content-toggle (begin) */
+[data-name] {
+    display: none;
+}
+[data-name].js-active {
+    display: block;
+}
+
+[data-name].popup-container.js-active {
+    display: flex;
+}
+/* content-toggle (end) */

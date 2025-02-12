@@ -20,15 +20,15 @@
             <ul class="grid grid_tabs">
                 <li class="grid__row">
                     <div class="grid__cell">
-                        <div data-switcher="profile" data-tab="true" class="button button_wide button_small">My profile</div>
+                        <div data-href="profile" data-group="tabs" class="button button_wide button_small js-active">My profile</div>
                     </div>
                     <div class="grid__cell">
-                        <div data-switcher="info" data-tab="true" class="button button_wide button_muted button_small">Blockshain info</div>
+                        <div data-href="info" data-group="tabs" class="button button_wide button_small">Blockshain info</div>
                     </div>
                 </li>
             </ul>
         </div>
-        <div data-switcher-content="profile" data-tab-content="true" class="js-open">
+        <div data-name="profile" data-group="tabs" class="js-active">
             <div class="box box_hero box_hero_significant">
                 <div class="box__content">
                     <ul class="grid">
@@ -78,7 +78,7 @@
                     <path d='M0,0 300,0 300,100 0,100z' vector-effect='non-scaling-stroke'/>
                 </svg>
             </div>
-            <div class="button button_wide" data-switcher="popup-1">Buy hash power</div>
+            <div class="button button_wide" data-group="popup" data-href="buy">Buy hash power</div>
             <h4>Last blocks</h4>
             <div class="box">
                 <ul class="grid grid_text">
@@ -136,7 +136,7 @@
                 </ul>
             </div>
         </div>
-        <div data-switcher-content="info" data-tab-content="true">
+        <div data-name="info" data-group="tabs" >
             <div class="box box_hero">
                 <div class="box__content">
                     <ul class="grid">
@@ -233,7 +233,7 @@
 </div>
 <div class="page__bg_0"></div>
 <div class="page__bg_1"></div>
-<div class="popup-container js-open" data-switcher-content="popup-1">
+<div class="popup-container js-active" data-group="popup" data-name="buy">
     <div class="popup">
         <div class="popup__inner">
             <h3>Buy hash power</h3>
@@ -249,10 +249,10 @@
                 </li>
             </ul>
             <div class="popup__button">
-                <div class="button button_wide js-close-popup">Return to My profile</div>
+                <div class="button button_wide" data-group="popup" data-href="close-popup">Return to My profile</div>
             </div>
         </div>
-        <div class="popup__overlay js-close-popup"></div>
+        <div class="popup__overlay" data-group="popup" data-href="close-popup"></div>
     </div>
 </div>
 </body>
