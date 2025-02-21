@@ -337,6 +337,16 @@ h4 {
     color: var(--colorBG);
 }
 
+.typo-paragraph-indent {
+    padding-bottom: 10px;
+}
+
+.typo-link,
+.typo-link:visited,
+.typo-link:link {
+    color: inherit !important;
+}
+
 .grid_text .typo-highlight {margin-left: 32px;}
 
 .typo-highlight.success {background: rgb(var(--colorAccnt));}
@@ -574,6 +584,10 @@ header .button_small:focus {
 .button_muted,
 .button_muted:visited,
 .button_muted:focus,
+.button_disabled,
+.button_disabled:visited,
+.button_disabled:focus,
+.button_disabled:hover,
 .grid_tabs .button:not(.js-active),
 .grid_tabs .button:not(.js-active):visited,
 .grid_tabs .button:not(.js-active):focus {
@@ -585,6 +599,7 @@ header .button_small:focus {
     background: rgba(var(--colorAccntMuted), 0.9);
     border-color: rgba(var(--colorAccntMuted), 0.9)
 }
+.button_disabled{pointer-events: none}
 .button_muted:active,
 .grid_tabs .button:active,
 .grid_tabs .button:not(.js-active):active {
@@ -785,6 +800,10 @@ header .button {
 /* grid (begin) */
 .box_hero .grid {margin-bottom: -16px;}
 
+.grid_indent {
+    margin-bottom: 10px;
+}
+
 .grid_3 {
     margin-right: -9px;
 }
@@ -830,6 +849,14 @@ h3 + .grid_tabs {
     flex: 1;
 
     padding: 9px 10px;
+}
+
+.grid__cell_indent {
+    padding-top: 20px;
+}
+
+.grid__row:not(:last-child) .grid__cell_indent {
+    padding-bottom: 20px;
 }
 
 .box_hero .grid__cell {padding: 9px 8px 22px 8px;}
@@ -1055,9 +1082,9 @@ h3 + .grid_tabs {
     z-index: 1;
 
     width: 100%;
-    height: 70px;
+    height: 65px;
     padding: 0 30px 0 0;
-    margin-bottom: 15px;
+    /*margin-bottom: 15px;*/
     resize: none;
     box-sizing: border-box;
 
